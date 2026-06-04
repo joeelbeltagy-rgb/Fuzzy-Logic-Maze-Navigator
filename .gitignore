@@ -1,4 +1,15 @@
-resources/
-.claude/
+# MATLAB generated files
 *.asv
 *.m~
+*.mex*
+*.mlapp
+slprj/
+*.slxc
+
+# MATLAB project internal cache (random-named folders)
+resources/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
