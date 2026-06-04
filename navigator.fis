@@ -1,0 +1,64 @@
+[System]
+Name='navigator'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=2
+NumRules=11
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+[Input1]
+Name='Left'
+Range=[0 5]
+NumMFs=4
+MF1='TooClose':'trimf',[0 0 0.6]
+MF2='Close':'trimf',[0.4 0.8 1.4]
+MF3='Safe':'trimf',[1 1.8 2.6]
+MF4='Far':'trimf',[2 5 5]
+[Input2]
+Name='Front'
+Range=[0 5]
+NumMFs=4
+MF1='TooClose':'trimf',[0 0 0.6]
+MF2='Close':'trimf',[0.4 1 1.8]
+MF3='Safe':'trimf',[1.4 2.5 3.6]
+MF4='Clear':'trimf',[3 5 5]
+[Input3]
+Name='Right'
+Range=[0 5]
+NumMFs=4
+MF1='TooClose':'trimf',[0 0 0.6]
+MF2='Close':'trimf',[0.4 0.8 1.4]
+MF3='Safe':'trimf',[1 1.8 2.6]
+MF4='Far':'trimf',[2 5 5]
+[Output1]
+Name='vL'
+Range=[-2.8 2.8]
+NumMFs=4
+MF1='Reverse':'trimf',[-2.8 -2.8 -1.2]
+MF2='Stop':'trimf',[-1.5 0 1.5]
+MF3='Slow':'trimf',[0.5 1.4 2.2]
+MF4='Fast':'trimf',[1.8 2.8 2.8]
+[Output2]
+Name='vR'
+Range=[-2.8 2.8]
+NumMFs=4
+MF1='Reverse':'trimf',[-2.8 -2.8 -1.2]
+MF2='Stop':'trimf',[-1.5 0 1.5]
+MF3='Slow':'trimf',[0.5 1.4 2.2]
+MF4='Fast':'trimf',[1.8 2.8 2.8]
+[Rules]
+0 1 0, 4 1 (1) : 1
+0 2 0, 4 2 (1) : 1
+1 0 0, 4 2 (1) : 1
+2 4 0, 4 4 (1) : 1
+2 3 0, 3 4 (1) : 1
+3 4 0, 3 4 (1) : 1
+3 3 0, 3 4 (1) : 1
+4 4 0, 2 4 (1) : 1
+4 3 0, 2 4 (1) : 1
+4 4 4, 3 4 (1) : 1
+0 0 1, 3 4 (1) : 1
